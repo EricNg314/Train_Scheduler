@@ -18,6 +18,9 @@
 
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+
     <script src="assets/javascript/app.js"></script>
 
 
@@ -83,16 +86,16 @@
                     <input type="text" class="form-control" id="inputName" aria-describedby="train Name" placeholder="Enter Train Name">
                 </div>
                 <div class="form-group">
-                    <label for="inputDestination">Destination</label>
-                    <input type="text" class="form-control" id="inputDestination" aria-describedby="destination" placeholder="Enter train destination.">
+                    <label for="inputDest">Destination</label>
+                    <input type="text" class="form-control" id="inputDest" aria-describedby="destination" placeholder="Enter train destination.">
                 </div>
                 <div class="form-group">
-                    <label for="inputFirstTrainTime">Start Time (DD/MM/YY - ex: 01/01/89)</label>
-                    <input type="text" class="form-control" id="inputFirstTrainTime" placeholder="Start Time">
+                    <label for="inputFirstTime">First Train Time (HH:mm - military time)</label>
+                    <input type="text" class="form-control" id="inputFirstTime" placeholder="Start Time">
                 </div>
                 <div class="form-group">
-                    <label for="inputFrequency">Frequency (min)</label>
-                    <input type="number" class="form-control" id="inputFrequency" placeholder="Frequency">
+                    <label for="inputFreq">Frequency (min)</label>
+                    <input type="number" class="form-control" id="inputFreq" placeholder="Frequency">
                 </div>
 
                 <button type="submit" id="submitBtn" class="btn btn-secondary">Submit</button>
