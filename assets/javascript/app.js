@@ -55,17 +55,45 @@ $(document).ready(function () {
         var tableNextTag = $("<td>");
         var tableMinAway = $("<td>");
 
-        // var formName = $("inputName").val();
-        // var formDest = $("inputDest").val();
-        // var formFirstTime = $("#inputFirstTime").val();
-        // var formFreq = $("#inputFreq").val();
+        //=====Calculation for minutes away. (START)======//
+        //Calculating the initial train in minutes.
+        var calcMinFirstTrain = function (timeFT) {
+            var hrsToMin = parseInt(moment(timeFT, "HH:mm").format("HH") * 60);
+
+            var minutes = parseInt(moment(timeFT, "HH:mm").format("mm"));
+            var totalMin = hrsToMin + minutes;
+            return totalMin
+        }
+
+        var firstArrMin = 0;
+
+        if (trainFirstTime !== "00:00") {
+            firstArrMin = calcMinFirstTrain(trainFirstTime);
+        } else {
+            firstArrMin = 0;
+        }
+
+        var calcMinutes = function (timeFT) {
+            var hrsToMin = parseInt(moment(timeFT).format("HH") * 60);
+
+            var minutes = parseInt(moment(timeFT).format("mm"));
+            var totalMin = hrsToMin + minutes;
+            return totalMin
+        }
+
+        //Current minutes - initial train = number of minutes where with X amount of trains occurring.
+        var minAway = (calcMinutes(Date()) - firstArrMin) % trainFreq;
+
+        console.log(minAway);
+        //=====Calculation for minutes away. (END)=====//
+
+        var trainNext = moment(Date()).add(minAway, "minutes").format("hh:mm A");
 
         tableNameTag.text(trainName);
         tableDestTag.text(trainDest);
-        
         tableFreqTag.text(trainFreq);
-
-        console.log("before appends");
+        tableNextTag.text(trainNext);
+        tableMinAway.text(minAway);
 
         tableRow.append(tableNameTag)
         tableRow.append(tableDestTag)
@@ -73,8 +101,6 @@ $(document).ready(function () {
         tableRow.append(tableNextTag)
         tableRow.append(tableMinAway);
         $("#trainData").append(tableRow);
-
-        console.log("after appends");
 
     });
 
