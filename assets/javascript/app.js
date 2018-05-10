@@ -67,7 +67,7 @@ $(document).ready(function () {
 
         var firstArrMin = 0;
 
-        if (trainFirstTime !== "00:00") {
+        if (trainFirstTime != "00:00") {
             firstArrMin = calcMinFirstTrain(trainFirstTime);
         } else {
             firstArrMin = 0;
@@ -81,12 +81,17 @@ $(document).ready(function () {
             return totalMin
         }
 
-        //Current minutes - initial train = number of minutes where with X amount of trains occurring.
-        var minAway = (calcMinutes(Date()) - firstArrMin) % trainFreq;
+        //(Current time as minutes) - (initial train) = number of minutes where with X amount of trains occurring. Initial minutes must be subtracted to start off at 0. Using modulus to find remaining minutes for "away". 
+        var minAway = (trainFreq - ((calcMinutes(Date()) - firstArrMin) % trainFreq));
+
+        // if(minAway < 0){
+
+        // }
 
         console.log(minAway);
         //=====Calculation for minutes away. (END)=====//
 
+        //Adding "remaining away minutes" to the current time to update for "next" train.
         var trainNext = moment(Date()).add(minAway, "minutes").format("hh:mm A");
 
         tableNameTag.text(trainName);
