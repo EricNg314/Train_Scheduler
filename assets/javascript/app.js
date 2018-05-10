@@ -20,10 +20,10 @@ $(document).ready(function () {
 
         event.preventDefault();
 
-        var trainName = $("#inputName").val();
-        var trainDest = $("#inputDest").val();
-        var trainFirstTime = $("#inputFirstTime").val();
-        var trainFreq = $("#inputFreq").val();
+        var trainName = $("#inputName").val().trim();
+        var trainDest = $("#inputDest").val().trim();
+        var trainFirstTime = $("#inputFirstTime").val().trim();
+        var trainFreq = $("#inputFreq").val().trim();
 
         console.log(trainName);
 
@@ -55,10 +55,26 @@ $(document).ready(function () {
         var tableNextTag = $("<td>");
         var tableMinAway = $("<td>");
 
+        // var formName = $("inputName").val();
+        // var formDest = $("inputDest").val();
+        // var formFirstTime = $("#inputFirstTime").val();
+        // var formFreq = $("#inputFreq").val();
 
+        tableNameTag.text(trainName);
+        tableDestTag.text(trainDest);
+        
+        tableFreqTag.text(trainFreq);
 
+        console.log("before appends");
 
-        $("#trainData").append(tableRow, tableNameTag, tableDestTag, tableFreqTag, tableNextTag, tableMinAway);
+        tableRow.append(tableNameTag)
+        tableRow.append(tableDestTag)
+        tableRow.append(tableFreqTag)
+        tableRow.append(tableNextTag)
+        tableRow.append(tableMinAway);
+        $("#trainData").append(tableRow);
+
+        console.log("after appends");
 
     });
 
