@@ -1,0 +1,26 @@
+#jumbotronID {
+    background-image: url("../images/ribblehead-viaduct-2443085_1920.jpg");
+    background-size: 100% 100%;
+
+    text-shadow: 3px 3px 5px white;
+}
+
+.display-4{
+    font-weight: bold;
+}
+
+.lead{
+    font-weight: bold;
+}
+
+.card-header{
+    font-weight:bold;
+}
+
+@media screen and (max-width: 550px) {
+    #tableCard{
+        font-size: .75em;
+
+    }
+
+}

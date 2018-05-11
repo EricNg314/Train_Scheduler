@@ -40,13 +40,14 @@
     <!-- Intro Page -->
 
     <div class="container">
-        <div class="jumbotron text-center">
+        <div id="jumbotronID" class="jumbotron text-center">
             <h1 class="display-4">Train Time Savers.</h1>
             <p class="lead">A little time goes a long metal rail.</p>
         </div>
-        <div class="card" style="width: 100%;">
-            <div class="card-header">
-                Current Train Schedule
+        <div id="tableCard" class="card" style="width: 100%;">
+
+            <div class="card-header">Current Train Schedule</div>
+            <div class="card-body">
                 <table class="table">
                     <thead>
                         <tr>
@@ -74,9 +75,7 @@
         </div>
         <br>
         <div class="card" style="width: 100%;">
-            <div class="card-header">
-                Add Train
-            </div>
+            <div class="card-header">Add Train</div>
             <form class="card-body">
                 <div class="form-group">
                     <label for="inputName">Train Name</label>

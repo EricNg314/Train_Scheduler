@@ -41,8 +41,6 @@ $(document).ready(function () {
 
     database.ref().on("child_added", function (childSnapshot, prevChildKey) {
 
-        console.log(childSnapshot.val());
-
         var trainName = childSnapshot.val().name;
         var trainDest = childSnapshot.val().dest;
         var trainFirstTime = childSnapshot.val().firstTime;
@@ -84,11 +82,8 @@ $(document).ready(function () {
         //(Current time as minutes) - (initial train) = number of minutes where with X amount of trains occurring. Initial minutes must be subtracted to start off at 0. Using modulus to find remaining minutes for "away". 
         var minAway = (trainFreq - ((calcMinutes(Date()) - firstArrMin) % trainFreq));
 
-        // if(minAway < 0){
 
-        // }
 
-        console.log(minAway);
         //=====Calculation for minutes away. (END)=====//
 
         //Adding "remaining away minutes" to the current time to update for "next" train.
